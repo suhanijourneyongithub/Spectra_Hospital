@@ -1,17 +1,22 @@
 {% load static %}
- 
+
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
+    
+    <head> 
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>login</title>
+        <title>Register</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel = "stylesheet" href = "{% static 'css/login.css'%}" >
 
         <style>
+            body {
+            color: black;
+            align-items: center;
+            height: 100vh;
+            }
             body, html{
                 background-image: url("{% static 'img/hospital.png'%}");
                 background-position: center;
@@ -21,31 +26,25 @@
                 align-items: center;
                 height: 100vh;
             }
-            
-          .login-form-container {
+            .register-form-container {
             width: 100%;
             max-width: 400px;
             padding: 15px;
             margin: auto;
-            background-color: #ffffffb6;
-            border: 1px solid #cccccc9d;
+            background-color: #ffffffa9;
+            border: 1px solid #cccccc8e;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          }
-          .login-form {
-            padding: 20px;
-          }
-          .foot{
-            margin: 20;
-            color: bisque;
-          }
-        </style> 
+            }
+            .register-form {
+            padding: 25px;
+            }
+        </style>
 
     </head>
 
-    <body>  
-        <header>
-        
+    <body> 
+
         <nav id = "nav01" class="navbar navbar-expand-lg navbar-dark">
             <img src="logo.png" alt="SH Logo" class="mr-3">
             <a class="navbar-brand" href="#">Sharma's Hospital</a>
@@ -60,34 +59,46 @@
                 </ul>
             </div>
         </nav> 
-        
-        </header>
-        <hr style = "border-color: white;"> 
-        <br><br><br><br>
 
-        <div class="login-form-container">
+        <hr style = "border-color: white;"> <br><br>
 
-            <h3 class="text-center">Login</h3>
-
-            <form method = "post" class="login-form">
-
-                {% csrf_token %}
+        <div class="register-form-container">
+            <h3 class="text-center">Register</h3>
+            <form class="register-form" method = "post">
+ 
+                {% csrf_token %} 
 
                 <div class="mb-3" class = "form-group">
-                  <label for="name" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter User name" name = "username" required>
-                </div>
-                
-                <div class="mb-3" class = "form-group">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password" name = "password" required>
+                    <label for="name" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter User name" name = "username" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Login</button>
-                <a href = "#">forget password?</a>
+                <div class="mb-3" class = "form-group">
+                    <label for="name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter first name" name = "first_name" required>
+                </div>
+
+                <div class="mb-3" class = "form-group">
+                    <label for="name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter last name" name = "last_name" required>
+                </div> 
+
+                <div class="mb-3" class = "form-group">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name = "email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name = "password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 btn-signup">Register</button>
+            
             </form>
+
             <footer>
-              <p class = "mt-1"> Don't have an account? <a href = "{% url 'register' %}">Register here</a></p>
+                <p class = "mt-1"> Already have an account? <a href = "{% url 'login' %}">Login here</a></p>
             </footer>
 
         </div>
@@ -96,11 +107,11 @@
                 © 2024 Hospital App<br>Contact :- 984500XXXX, 984501XXXX<br>Our Privacy Policies are <a href = "#" style = "color: rgb(252, 196, 128);">Privacy Policy</a>
             </div>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
+
     </body>
 </html>
